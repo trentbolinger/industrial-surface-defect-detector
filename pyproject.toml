@@ -1,0 +1,16 @@
+[project]
+name = "aerospace-defect-detector"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "gradio>=6.15.1",
+    "kaggle>=2.2.0",
+    "matplotlib>=3.10.9",
+    "numpy>=2.4.6",
+    "pandas>=3.0.3",
+    "pillow>=12.2.0",
+    "torch>=2.12.0",
+    "torchvision>=0.27.0",
+]
