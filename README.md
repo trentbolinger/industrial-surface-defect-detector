@@ -1,6 +1,6 @@
 # Industrial Surface Defect Detector
 
-AI-powered visual inspection system for classifying surface defects in aerospace and defense manufacturing components using transfer learning on the NEU Surface Defect Dataset.
+AI-powered visual inspection system for classifying surface defects in industrial manufacturing components using transfer learning on the NEU Surface Defect Dataset.
 
 ---
 
