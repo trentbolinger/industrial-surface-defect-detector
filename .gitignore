@@ -5,6 +5,9 @@ outputs/best_model.pth
 # Environment-specific startup script
 start-project.sh
 
+# Gradio cache
+.gradio/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
