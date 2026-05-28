@@ -3,8 +3,8 @@ import random
 import matplotlib.pyplot as plt
 from PIL import Image
 
-# Path to the folder that contains one sub-folder per defect class
-DATASET_PATH = "/home/tbolinger/data/neu-dataset/NEU-DET/train/images/"
+# Path to the dataset — override by setting the NEU_DATASET_PATH environment variable
+DATASET_PATH = os.environ.get("NEU_DATASET_PATH", "data/neu-dataset/NEU-DET/train/images/")
 
 # Where to save the grid image
 OUTPUT_PATH = "outputs/sample_grid.png"

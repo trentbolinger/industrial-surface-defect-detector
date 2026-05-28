@@ -10,7 +10,8 @@ from torchvision import models, transforms
 # ── Model & class setup ──────────────────────────────────────────────────────
 
 CHECKPOINT_PATH = "outputs/best_model.pth"
-DATASET_PATH    = "/home/tbolinger/data/neu-dataset/NEU-DET/train/images/"
+# Path to the dataset — override by setting the NEU_DATASET_PATH environment variable
+DATASET_PATH    = os.environ.get("NEU_DATASET_PATH", "data/neu-dataset/NEU-DET/train/images/")
 
 CLASS_NAMES = [
     "crazing",

@@ -1,8 +1,8 @@
 import os
 import matplotlib.pyplot as plt
 
-# Path to the folder that contains one sub-folder per defect class
-DATASET_PATH = "/home/tbolinger/data/neu-dataset/NEU-DET/train/images/"
+# Path to the dataset — override by setting the NEU_DATASET_PATH environment variable
+DATASET_PATH = os.environ.get("NEU_DATASET_PATH", "data/neu-dataset/NEU-DET/train/images/")
 
 # Where to save the bar chart — created below if it doesn't already exist
 OUTPUT_DIR = "outputs"

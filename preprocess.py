@@ -2,8 +2,8 @@ import torch
 from torch.utils.data import random_split, DataLoader
 from torchvision import datasets, transforms
 
-# Path to the folder that contains one sub-folder per defect class
-DATASET_PATH = "/home/tbolinger/data/neu-dataset/NEU-DET/train/images/"
+# Path to the dataset — override by setting the NEU_DATASET_PATH environment variable
+DATASET_PATH = os.environ.get("NEU_DATASET_PATH", "data/neu-dataset/NEU-DET/train/images/")
 
 BATCH_SIZE = 32
 
