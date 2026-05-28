@@ -19,6 +19,7 @@ CLASS_NAMES = [
     "pitted_surface",
     "rolled-in_scale",
     "scratches",
+    "unknown",
 ]
 
 # Use GPU if available, otherwise CPU

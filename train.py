@@ -12,7 +12,7 @@ CHECKPOINT_PATH = "outputs/best_model.pth"
 
 LEARNING_RATE = 0.001
 NUM_EPOCHS = 30
-NUM_CLASSES = len(full_dataset.classes)  # 6 defect classes
+NUM_CLASSES = len(full_dataset.classes)  # 7 classes: 6 defects + unknown
 
 # Use GPU if one is available, otherwise fall back to CPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -23,7 +23,7 @@ print(f"Training on: {device}")
 # basic visual features like edges and textures
 model = models.resnet18(weights=models.ResNet18_Weights.DEFAULT)
 
-# Swap out the final fully-connected layer so it outputs 6 scores (one per defect class)
+# Swap out the final fully-connected layer so it outputs 7 scores (6 defects + unknown)
 # instead of the original 1000 ImageNet classes
 model.fc = nn.Linear(model.fc.in_features, NUM_CLASSES)
 
