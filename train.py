@@ -11,7 +11,7 @@ os.makedirs("outputs", exist_ok=True)
 CHECKPOINT_PATH = "outputs/best_model.pth"
 
 LEARNING_RATE = 0.001
-NUM_EPOCHS = 10
+NUM_EPOCHS = 30
 NUM_CLASSES = len(full_dataset.classes)  # 6 defect classes
 
 # Use GPU if one is available, otherwise fall back to CPU
@@ -35,6 +35,10 @@ loss_fn = nn.CrossEntropyLoss()
 
 # Adam optimizer updates the model weights during backpropagation
 optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
+
+# StepLR reduces the learning rate by a factor of 0.1 every 10 epochs
+# e.g. 0.001 -> 0.0001 at epoch 10 -> 0.00001 at epoch 20
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
 
 best_val_accuracy = 0.0  # track the highest validation accuracy seen so far
 
@@ -73,9 +77,14 @@ for epoch in range(1, NUM_EPOCHS + 1):
 
     val_accuracy = correct / total
 
+    # Step the scheduler at the end of each epoch to update the learning rate
+    scheduler.step()
+    current_lr = scheduler.get_last_lr()[0]
+
     print(f"Epoch {epoch:>2}/{NUM_EPOCHS} | "
           f"Train Loss: {avg_train_loss:.4f} | "
-          f"Val Accuracy: {val_accuracy:.4f}")
+          f"Val Accuracy: {val_accuracy:.4f} | "
+          f"LR: {current_lr:.6f}")
 
     # Save the model whenever validation accuracy beats the previous best
     if val_accuracy > best_val_accuracy:
