@@ -1,4 +1,4 @@
-# Aerospace Defect Detector
+# Industrial Surface Defect Detector
 
 AI-powered visual inspection system for classifying surface defects in aerospace and defense manufacturing components using transfer learning on the NEU Surface Defect Dataset.
 
@@ -8,7 +8,7 @@ AI-powered visual inspection system for classifying surface defects in aerospace
 
 > **[Watch Demo Video](https://youtu.be/cYDXbjDaZHo)**
 
-Live Demo: https://huggingface.co/spaces/trentbolinger/aerospace-defect-detector
+Live Demo: https://huggingface.co/spaces/trentbolinger/industrial-surface-defect-detector
 
 Live Gradio interface: run `python demo.py` to launch a shareable public URL.
 
