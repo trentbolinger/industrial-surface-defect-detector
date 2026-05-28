@@ -64,7 +64,7 @@ def predict(image: Image.Image):
     confidence      = probabilities[predicted_index] * 100
 
     # If the model isn't confident enough, reject the image rather than guess
-    if confidence < 70.0:
+    if confidence < 85.0:
         predicted_label = "Unknown / Not a valid steel surface"
     else:
         predicted_label = CLASS_NAMES[predicted_index]
