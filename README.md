@@ -8,6 +8,8 @@ AI-powered visual inspection system for classifying surface defects in aerospace
 
 > **[Watch Demo Video](https://youtu.be/cYDXbjDaZHo)**
 
+Live Demo: https://huggingface.co/spaces/trentbolinger/aerospace-defect-detector
+
 Live Gradio interface: run `python demo.py` to launch a shareable public URL.
 
 ---
