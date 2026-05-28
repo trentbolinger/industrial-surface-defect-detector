@@ -61,8 +61,13 @@ def predict(image: Image.Image):
 
     # Pick the class with the highest confidence
     predicted_index = int(np.argmax(probabilities))
-    predicted_label = CLASS_NAMES[predicted_index]
     confidence      = probabilities[predicted_index] * 100
+
+    # If the model isn't confident enough, reject the image rather than guess
+    if confidence < 70.0:
+        predicted_label = "Unknown / Not a valid steel surface"
+    else:
+        predicted_label = CLASS_NAMES[predicted_index]
 
     result_text = f"{predicted_label}  ({confidence:.1f}% confidence)"
 
