@@ -2,6 +2,9 @@
 *.pth
 outputs/best_model.pth
 
+# Environment-specific startup script
+start-project.sh
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
