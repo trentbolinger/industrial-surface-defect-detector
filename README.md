@@ -27,7 +27,8 @@ Live Gradio interface: run `python demo.py` to launch a shareable public URL.
 | Rolled-in Scale | 1.0000 | 1.0000 | 1.0000 |
 | Scratches | 1.0000 | 0.9804 | 0.9901 |
 | Unknown | 1.0000 | 1.0000 | 1.0000 |
-| **Overall Accuracy** | | | **99.70%** |
+| Good Steel | 1.0000 | 1.0000 | 1.0000 |
+| **Overall Accuracy** | | | **100%** |
 
 ### Confusion Matrix
 
@@ -47,8 +48,10 @@ Live Gradio interface: run `python demo.py` to launch a shareable public URL.
 
 **[NEU Surface Defect Dataset](http://faculty.neu.edu.cn/yunhyan/NEU_surface_defect_database.html)** — a benchmark dataset for automatic detection of surface defects on hot-rolled steel strips, collected by Northeastern University (NEU).
 
-- **1,800 grayscale images** across 6 defect classes (300 per class)
-- **240 additional images** downloaded from [picsum.photos](https://picsum.photos) as an `unknown` rejection class
+- **1,920 total images** across 8 classes (240 per class)
+- **1,800 grayscale images** across 6 defect classes sourced from the NEU Surface Defect Dataset (300 per class, resampled to 240)
+- **240 `unknown` images** downloaded from [picsum.photos](https://picsum.photos) as a non-steel rejection class
+- **240 `good_steel` images** sourced from the [Severstal Steel Defect Detection dataset](https://www.kaggle.com/c/severstal-steel-defect-detection) on Kaggle — non-defective steel surfaces
 - **Split:** 80% train / 20% validation, stratified by class
 - **Resolution:** 200×200 px (resized to 224×224 for training)
 
@@ -61,13 +64,14 @@ Live Gradio interface: run `python demo.py` to launch a shareable public URL.
 | Rolled-in Scale | Oxide scale pressed into the surface |
 | Scratches | Linear surface marks |
 | Unknown | Non-steel images — triggers rejection in the demo |
+| Good Steel | Non-defective steel surface — sourced from Severstal Steel Defect Detection dataset |
 
 ---
 
 ## Model Architecture & Approach
 
 - **Base model:** ResNet-18 pretrained on ImageNet (torchvision)
-- **Fine-tuning:** Final fully-connected layer replaced with a 7-class head; all layers trained end-to-end
+- **Fine-tuning:** Final fully-connected layer replaced with an 8-class head; all layers trained end-to-end
 - **Input pipeline:** Grayscale → 3-channel RGB → resize 224×224 → normalize with ImageNet mean/std
 - **Loss:** Cross-entropy
 - **Optimizer:** Adam (lr = 0.001)
