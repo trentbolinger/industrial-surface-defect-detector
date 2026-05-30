@@ -12,7 +12,7 @@ CHECKPOINT_PATH = "outputs/best_model.pth"
 
 LEARNING_RATE = 0.001
 NUM_EPOCHS = 30
-NUM_CLASSES = len(full_dataset.classes)  # 7 classes: 6 defects + unknown
+NUM_CLASSES = len(full_dataset.classes)  # 8 classes: 6 defects + unknown + good_steel
 
 # Use GPU if one is available, otherwise fall back to CPU
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
