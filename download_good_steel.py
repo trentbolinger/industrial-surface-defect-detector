@@ -17,12 +17,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # Read the CSV — the ImageId_ClassId column contains entries like "abc123.jpg_1",
 # so we split on the last underscore to get just the image filename
 df = pd.read_csv(CSV_PATH)
-all_filenames = (
-    df["ImageId_ClassId"]
-    .apply(lambda x: x.rsplit("_", 1)[0])  # "abc123.jpg_1" -> "abc123.jpg"
-    .unique()
-    .tolist()
-)
+all_filenames = df["ImageId"].unique().tolist()
 
 # Take only the first 240 unique image filenames
 filenames = all_filenames[:NUM_IMAGES]
