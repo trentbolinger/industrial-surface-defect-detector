@@ -6,7 +6,7 @@ AI-powered visual inspection system for classifying surface defects in industria
 
 ## Demo
 
-> **[Watch Demo Video](https://youtu.be/cYDXbjDaZHo)**
+> **[Watch Demo Video](https://youtu.be/sq3GgYFqWCM)**
 
 Live Demo: https://huggingface.co/spaces/trentbolinger/industrial-surface-defect-detector
 
