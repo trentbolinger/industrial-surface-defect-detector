@@ -16,13 +16,13 @@ DATASET_PATH    = os.environ.get("NEU_DATASET_PATH", "data/neu-dataset/NEU-DET/t
 
 CLASS_NAMES = [
     "crazing",
+    "good_steel",
     "inclusion",
     "patches",
     "pitted_surface",
     "rolled-in_scale",
     "scratches",
     "unknown",
-    "good_steel",
 ]
 
 # The 6 classes that represent actual manufacturing defects (used for DPMO calculation)
