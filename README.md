@@ -10,7 +10,7 @@ AI-powered visual inspection system for classifying surface defects in industria
 
 Live Demo: https://huggingface.co/spaces/trentbolinger/industrial-surface-defect-detector
 
-Live Gradio interface: run `python demo.py` to launch a shareable public URL.
+Live Gradio interface: run `python demo.py` to launch a two-tab interface — Defect Classifier and Quality Dashboard — with a shareable public URL.
 
 ---
 
@@ -33,6 +33,20 @@ Live Gradio interface: run `python demo.py` to launch a shareable public URL.
 ### Confusion Matrix
 
 ![Confusion Matrix](outputs/confusion_matrix.png)
+
+---
+
+## Quality Dashboard
+
+The demo includes a second tab alongside the Defect Classifier that tracks real-time Six Sigma quality metrics across all images inspected in a session:
+
+| Metric | Description |
+|---|---|
+| **First-Pass Yield** | Percentage of inspected parts classified as good steel on the first pass |
+| **DPMO** | Defects Per Million Opportunities — counts only the 6 defect classes, not rejections |
+| **Sigma Level** | Derived from DPMO using the standard Six Sigma conversion table (6σ = 3.4 DPMO) |
+
+The dashboard also shows a per-class defect breakdown and updates automatically after each image is submitted. A **Reset Session** button clears all counters for a fresh inspection run.
 
 ---
 
